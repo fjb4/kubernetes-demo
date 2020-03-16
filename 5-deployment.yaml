@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dotnetapp
+  name: dotnetapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dotnetapp
+  template:
+    metadata:
+      labels:
+        app: dotnetapp
+    spec:
+      containers:
+      - image: nginx
+        name: dotnetapp
+        ports:
+          - containerPort: 80

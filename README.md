@@ -1,0 +1,83 @@
+### Kubernetes Demo
+
+- Prerequisites
+  - .NET Core SDK 3.1
+  - Docker
+  - Kubernetes
+- Web App Demo
+  - No container
+    - dotnet run
+      - http://localhost:5000
+  - Docker
+    - docker build --pull -t dotnetapp .
+    - docker run --rm -it -p 8000:80 dotnetapp
+      - http://localhost:8000
+    - docker tag dotnetapp fjb4/dotnetapp
+    - docker push fjb4/dotnetapp
+  - Intro to Kubernetes
+    - kubectl
+    - kubectl get node -o wide
+  - Kubernetes Pod
+    - What is a pod?
+    - Multi-container pods
+    - kubectl apply -f 1-pod.yaml 
+  - Kubernetes LoadBalancer Service
+    - kubectl apply -f 2-service.yaml
+  - Demonstrate that pods restart
+    - http://localhost:30100/stop
+  - Clean up
+    - kubectl delete pod dotnetapp
+  - Kubernetes Replicaset
+    - kubectl apply -f 3-replicaset.yaml
+    - kubectl get pod
+    - Demonstrate scaling
+      - kubectl scale --replicas=5 replicaset/dotnetapp
+  - Clean up
+    - kubectl delete replicaset dotnetapp
+  - Kubernetes Deployment
+    - kubectl apply -f 4-deployment.yaml
+    - kubectl rollout history deployment/dotnetapp
+    - kubectl apply -f 5-deployment.yaml
+    - kubectl get pod
+    - kubectl rollout history deployment/dotnetapp
+    - kubectl rollout undo deployment/dotnetapp
+- Kubernetes architecture/features
+  - Nodes - Master/worker, etcd
+  - Controllers, desired state
+    - CRDs, Operators
+  - Services
+    - ClusterIP, NodePort, LoadBalancer/Ingress
+  - Namespaces
+  - Scheduled/Cron Jobs
+  - Stateful sets
+  - Persistent Volumes, Persistent Volume Claims
+  - Readiness/Liveness Probes
+  - Logging
+  - ConfigMaps
+  - Secrets
+- Where day 2 is tough (aka what's our value add over open source K8S?)
+  - Backup/restore
+  - Cluster creation (pks create-cluster)
+  - Resizing clusters (pks resize)
+  - Upgrading (pks upgrade-clusters)
+  - Keeping track/managing of all those clusters (Tanzu Mission Control)
+- K8S for the developer
+  - K8S is a self-service IAAS
+  - Still have to manually build containers
+    - Build Service can help here
+  - Configure services
+  - Get used to writing lots of YAML
+  - Or just 'cf push'
+- Where we can help
+- First principles
+- Level of effort to containerize/helm charts
+- Registry
+- What's our value add over K8S?
+
+- Pods vs Cores vs CPUs vs Sockets
+  - (# Processor Sockets) X (# Cores/Processor)  = # Physical Processors (pCPU)
+  - (# pCPU) X (2 threads/physical processor) = # Virtual Processors (vCPU)
+  - Socket = Connector that accepts one physical chip
+  - Chip = Integrated circuit with one or more cores
+  - Core/Processor/CPU = Logical execution unit
+  - vCPU = virtual CPU = Number of CPUs configured in a VM; must be equal to or less than number of physical CPUs on the host

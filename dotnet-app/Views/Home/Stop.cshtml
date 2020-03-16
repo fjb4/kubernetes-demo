@@ -1,0 +1,20 @@
+@model MyModel
+@{
+    ViewData["Title"] = "Application Stopped";
+}
+
+<div>
+    <h1>Application terminated</h1>
+
+    <h3>The current time is @Model.Date.ToString() UTC</h3>
+
+    @if (!string.IsNullOrWhiteSpace(Model.PodName))
+    {
+        <h3>Pod Name: @Model.PodName</h3>
+    }
+
+    @if (!string.IsNullOrWhiteSpace(Model.PodIp))
+    {
+        <h3>Pod IP Address: @Model.PodIp</h3>
+    }
+</div>
