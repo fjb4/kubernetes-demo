@@ -1,90 +1,11 @@
-### Kubernetes Demo
+# Kubernetes Demo
 
-- Prerequisites
-  - .NET Core SDK 3.1
-  - Docker
-  - Kubernetes
-- Web App Demo
-  - No container
-    - dotnet run
-      - http://localhost:5000
-      - http://localhost:5000/stop
-  - Docker
-    - docker build --pull -t fjb4/dotnetapp .
-    - docker run --rm -it -p 8000:80 fjb4/dotnetapp
-      - http://localhost:8000
-    - docker push fjb4/dotnetapp
-  - Intro to Kubernetes
-    - Architecture overview
-      - https://docs.google.com/presentation/d/1G9xAxuokX_TFsO2Y6f5XWfzg_oRoruWstYFnW0dNW14/edit#slide=id.g2609bb97cd_0_28
-    - kubectl
-      - kubectl config get-contexts
-      - kubectl config set-context healdsburg-pks-cluster-1
-        - cat ~/.kube/config
-      - kubectl cluster-info
-      - kubectl get node -o wide
-      - kubectl get all
-  - Kubernetes Pod
-    - kubectl apply -f 1-pod.yaml
-    - kubectl logs dotnetapp
-  - Kubernetes LoadBalancer Service
-    - kubectl apply -f 2-service.yaml
-    - Discuss services, selectors & labels
-    - Demonstrate that pods restart
-      - http://localhost:30100/stop
-      - watch kubectl get all
-  - Clean up
-    - kubectl delete pod dotnetapp
-  - Kubernetes Replicaset
-    - kubectl apply -f 3-replicaset.yaml
-    - kubectl get pod
-    - Demonstrate scaling
-      - kubectl scale --replicas=5 replicaset/dotnetapp
-    - Kubernetes horizontal pod autoscaler
-  - Clean up
-    - kubectl delete replicaset dotnetapp
-  - Kubernetes Deployment
-    - kubectl apply -f 4-deployment.yaml
-    - kubectl rollout history deployment/dotnetapp
-    - kubectl apply -f 5-deployment.yaml
-    - kubectl get pod
-    - kubectl rollout history deployment/dotnetapp
-    - kubectl rollout undo deployment/dotnetapp
-- Kubernetes architecture/features
-  - Nodes - Master/worker, etcd
-  - Controllers, desired state
-    - CRDs, Operators
-  - Services
-    - ClusterIP, NodePort, LoadBalancer/Ingress
-  - Namespaces
-  - Scheduled/Cron Jobs
-  - Stateful sets
-  - Persistent Volumes, Persistent Volume Claims
-  - Readiness/Liveness Probes
-  - ConfigMaps
-  - Secrets
-- Where day 2 is tough (aka what's our value add over open source K8S?)
-  - Backup/restore (velero)
-  - Cluster creation (pks create-cluster)
-  - Resizing clusters (pks resize)
-  - Upgrading (pks upgrade-clusters)
-  - Managing all of those clusters (Tanzu Mission Control)
-- K8S for the developer
-  - K8S is a self-service IAAS
-  - Still have to manually build containers
-    - Build Service can help here
-  - Configure services
-  - Get used to writing lots of YAML
-  - ...or just 'cf push'
-- Where we can help
-- First principles
-- Level of effort to containerize/helm charts
-- Registry
+## Prerequisites
+  - [.NET Core SDK 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+  - [Docker Desktop + Kubernetes](https://www.docker.com/products/docker-desktop)
 
-- Pods vs Cores vs CPUs vs Sockets
-  - (# Processor Sockets) X (# Cores/Processor)  = # Physical Processors (pCPU)
-  - (# pCPU) X (2 threads/physical processor) = # Virtual Processors (vCPU)
-  - Socket = Connector that accepts one physical chip
-  - Chip = Integrated circuit with one or more cores
-  - Core/Processor/CPU = Logical execution unit
-  - vCPU = virtual CPU = Number of CPUs configured in a VM; must be equal to or less than number of physical CPUs on the host
+### Optional
+  - [JupyterLab](https://jupyter.org/install.html)
+  - [ZSH](https://github.com/danylo-dubinin/zsh-jupyter-kernel)
+
+## [Runbook](runbook.ipynb)
