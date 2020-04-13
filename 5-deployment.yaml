@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: dotnetapp-dep
   labels:
     app: dotnetapp
-  name: dotnetapp
 spec:
   replicas: 3
   selector:
@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - image: nginx
-        name: dotnetapp
+        name: dotnetapp-container
+        imagePullPolicy: Always
         ports:
           - containerPort: 80
