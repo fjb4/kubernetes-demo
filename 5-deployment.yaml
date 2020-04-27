@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: dotnetapp-dep
   labels:
-    app: dotnetapp
+    app: dotnetapp-dep
 spec:
   replicas: 3
   selector:

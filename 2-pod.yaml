@@ -4,7 +4,6 @@ metadata:
   name: dotnetapp-pod
   labels:
     app: dotnetapp
-    tier: frontend
 spec:
   containers:
   - image: fjb4/dotnetapp

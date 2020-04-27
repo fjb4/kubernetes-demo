@@ -3,7 +3,7 @@ kind: ReplicaSet
 metadata:
   name: dotnetapp-rep
   labels:
-    app: dotnetapp
+    app: dotnetapp-rep
 spec:
   replicas: 3
   selector:

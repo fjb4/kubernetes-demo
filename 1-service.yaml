@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: dotnetapp-svc
   labels:
-    app: dotnetapp
+    app: dotnetapp-svc
 spec:
   type: LoadBalancer
   ports:
