@@ -15,17 +15,17 @@ spec:
         app: dotnetapp
     spec:
       containers:
-      - image: fjb4/dotnetapp
-        name: dotnetapp-container
-        imagePullPolicy: Always
-        ports:
-          - containerPort: 80
-        env:
-          - name: POD_NAME
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-          - name: POD_IP
-            valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
+        - image: registry.gke.jb-cloud.com/library/dotnetapp
+          name: dotnetapp-container
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP

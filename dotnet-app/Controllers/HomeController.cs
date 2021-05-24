@@ -24,6 +24,8 @@ namespace DotNetApp.Controllers
         public IActionResult Index()
         {
             var now = DateTime.UtcNow;
+            _logger.LogInformation(now.ToString());
+        
             var podName = Environment.GetEnvironmentVariable("POD_NAME");
             var podIp = Environment.GetEnvironmentVariable("POD_IP");
 
@@ -35,6 +37,8 @@ namespace DotNetApp.Controllers
             _applicationLifetime.StopApplication();
 
             var now = DateTime.UtcNow;
+            _logger.LogInformation("Stopping at " + now.ToString());
+
             var podName = Environment.GetEnvironmentVariable("POD_NAME");
             var podIp = Environment.GetEnvironmentVariable("POD_IP");
 

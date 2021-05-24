@@ -15,8 +15,8 @@ spec:
         app: dotnetapp
     spec:
       containers:
-      - image: nginx
-        name: dotnetapp-container
-        imagePullPolicy: Always
-        ports:
-          - containerPort: 80
+        - image: nginx
+          name: dotnetapp-container
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
