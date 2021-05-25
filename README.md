@@ -1,11 +1,6 @@
 # Kubernetes Demo
 
 ## Prerequisites
-  - [.NET Core SDK 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+  - [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
   - [Docker Desktop + Kubernetes](https://www.docker.com/products/docker-desktop)
-
-### Optional
-  - [JupyterLab](https://jupyter.org/install.html)
-  - [ZSH](https://github.com/danylo-dubinin/zsh-jupyter-kernel)
-
-## [Runbook](runbook.ipynb)
+  - [Demo Magic](https://github.com/paxtonhare/demo-magic)
