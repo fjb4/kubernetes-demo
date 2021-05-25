@@ -18,7 +18,9 @@ kubectl delete deployment dotnetapp-dep
 clear
 
 # Run locally
+pei "ls"
 pe "dotnet run --project dotnet-app"
+wait
 
 #pe "open http://localhost:5000/"
 #pe "open http://localhost:5000/stop"
@@ -32,6 +34,7 @@ pe "bat Dockerfile"
 pe "docker build --pull -t registry.gke.jb-cloud.com/library/dotnetapp ."
 pe "docker image list | grep dotnetapp"
 pe "docker run --rm -it -p 8000:80 registry.gke.jb-cloud.com/library/dotnetapp"
+wait
 
 #pe "open http://localhost:8000/"
 #pe "open http://localhost:8000/stop"
